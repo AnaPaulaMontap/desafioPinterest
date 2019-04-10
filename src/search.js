@@ -13,13 +13,15 @@ class Search extends Component {
         this.state = {
             search: '',
             images:[],
-            img0_5: [],
-            img5_10: [],
-            img10_15: [],
-            img15_20: [],
+            img0_4: [],
+            img4_8: [],
+            img8_12: [],
+            img12_16: [],
+            img16_20: [],
+           
         };
+
         
-       
     }
 
     componentDidMount () {
@@ -41,73 +43,161 @@ class Search extends Component {
             let img2 = []
             let img3 = []
             let img4 = []
+            let img5 = []
 
-        for (let i=0; i<5; i++){
+        for (let i=0; i<4; i++){
             let imgRandom = this.state.images[i]
             img1.push(imgRandom.urls.thumb)
         }
         this.setState({
             ...this.state,
-                img0_5: img1
+                img0_4: img1
            })
 
-        for (let i=5; i<10; i++){
+        for (let i=4; i<8; i++){
             let imgRandom1 = this.state.images[i]
             img2.push(imgRandom1.urls.thumb)           
         }
 
         this.setState({
             ...this.state,
-                img5_10: img2
+                img4_8: img2
            })
         
-        for (let i=10; i<15; i++){
+        for (let i=8; i<12; i++){
             let imgRandom2 = this.state.images[i]
             img3.push(imgRandom2.urls.thumb)           
         }
 
         this.setState({
             ...this.state,
-                img10_15: img3
+                img8_12: img3
            })
         
-        for (let i=15; i<20; i++){
+        for (let i=12; i<16; i++){
             let imgRandom3 = this.state.images[i]
             img4.push(imgRandom3.urls.thumb)           
         }
 
         this.setState({
             ...this.state,
-                img15_20: img4
+                img12_16: img4
            })
            
-        })
+           for (let i=16; i<20; i++){
+            let imgRandom4 = this.state.images[i]
+            img5.push(imgRandom4.urls.thumb)           
+        }
+
+        this.setState({
+            ...this.state,
+                img16_20: img5
+           })
+        })                  
+    }
+    componentDidUpdate (){
+        if( !this.props.recharge ){
+            return false
+        }
+        else{
         
+        unsplash.photos.listPhotos(2, 20, "latest")
+        .then(response =>{
+            return response.json()
+        })
+        .then(json => {
+           const results = json
+           
+           this.setState({
+            ...this.state,
+               images:results
+           })
+        })
+        .then(json =>{
+            let img1 = []
+            let img2 = []
+            let img3 = []
+            let img4 = []
+            let img5 = []
+
+        for (let i=0; i<4; i++){
+            let imgRandom = this.state.images[i]
+            img1.push(imgRandom.urls.thumb)
+        }
+        this.setState({
+            ...this.state,
+                img0_4: this.state.img0_4.concat(img1)
+           })
+
+        for (let i=4; i<8; i++){
+            let imgRandom1 = this.state.images[i]
+            img2.push(imgRandom1.urls.thumb)           
+        }
+
+        this.setState({
+            ...this.state,
+                img4_8: this.state.img4_8.concat(img2)
+           })
+        
+        for (let i=8; i<12; i++){
+            let imgRandom2 = this.state.images[i]
+            img3.push(imgRandom2.urls.thumb)           
+        }
+
+        this.setState({
+            ...this.state,
+                img8_12: this.state.img8_12.concat(img3)
+           })
+        
+        for (let i=12; i<16; i++){
+            let imgRandom3 = this.state.images[i]
+            img4.push(imgRandom3.urls.thumb)           
+        }
+
+        this.setState({
+            ...this.state,
+                img12_16: this.state.img12_16.concat(img4)
+           })
+           
+           for (let i=16; i<20; i++){
+            let imgRandom4 = this.state.images[i]
+            img5.push(imgRandom4.urls.thumb)           
+        }
+
+        this.setState({
+            ...this.state,
+                img16_20: this.state.img16_20.concat(img5)
+           })
+        })                  
+        }
     }
 
-    render() {             
-        
+    render() {          
 
-        const img =  this.state.img0_5.map(item =>{
-            
-             return <img className="imgSearch" src={item} alt="img"/>
+        const img =  this.state.img0_4.map(item =>{               
+             return <img className="imgSearch" src={item} alt="img" key={item} onClick={()=>this.props.open(item)}/>
                })
         
-        const img1 =  this.state.img5_10.map(item1 =>{
+        const img1 =  this.state.img4_8.map(item1 =>{
               
-             return <img className="imgSearch" src={item1} alt="img"/>
+             return <img className="imgSearch" src={item1} alt="img" key={item1} onClick={()=>this.props.open(item1)}/>
                   })
 
-        const img2 =  this.state.img10_15.map(item2 =>{
+        const img2 =  this.state.img8_12.map(item2 =>{
             
-           return <img className="imgSearch" src={item2} alt="img"/>
+           return <img className="imgSearch" src={item2} alt="img" key={item2} onClick={()=>this.props.open(item2)}/>
              })
       
-        const img3 =  this.state.img15_20.map(item4 =>{
+        const img3 =  this.state.img12_16.map(item3 =>{
               
-           return <img className="imgSearch" src={item4} alt="img"/>
+           return <img className="imgSearch" src={item3} alt="img" key={item3} onClick={()=>this.props.open(item3)}/>
                 })
 
+        const img4 =  this.state.img16_20.map(item4 =>{
+              
+            return <img className="imgSearch" src={item4} alt="img" key={item4} onClick={()=>this.props.open(item4)}/>
+                })
+  
 
         return (
         <div>
@@ -116,7 +206,9 @@ class Search extends Component {
               <div className="column">{img1}</div> 
               <div className="column">{img2}</div> 
               <div className="column">{img3}</div> 
+              <div className="column">{img4}</div> 
             </div>
+            
         </div>
         )
     }

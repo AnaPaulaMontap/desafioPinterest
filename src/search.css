@@ -6,9 +6,9 @@
   
   /* Create four equal columns that sits next to each other */
   .column {
-    flex: 25%;
-    max-width: 25%;
-    padding: 2%;
+    flex: 20%;
+    max-width: 20%;
+    padding: 1%;
     box-sizing: border-box;
   }
   
