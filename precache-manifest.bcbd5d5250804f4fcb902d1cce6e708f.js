@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "7dc562c753e77649739f",
-    "url": "/desafioPinterest/static/css/main.134b6c2f.chunk.css"
+    "revision": "372c5f1df7c915721a37",
+    "url": "/desafioPinterest/static/css/main.2c169e3b.chunk.css"
   },
   {
-    "revision": "7dc562c753e77649739f",
-    "url": "/desafioPinterest/static/js/main.5bcd3345.chunk.js"
+    "revision": "372c5f1df7c915721a37",
+    "url": "/desafioPinterest/static/js/main.16ea091e.chunk.js"
   },
   {
     "revision": "1d7766f756632e966e1f",
     "url": "/desafioPinterest/static/js/runtime~main.72bba9c9.js"
   },
   {
-    "revision": "a73d590eb9bf3f4b0c53",
-    "url": "/desafioPinterest/static/js/2.8d8b384c.chunk.js"
+    "revision": "13cd3e0d54fe50f86de1",
+    "url": "/desafioPinterest/static/js/2.299ce7cc.chunk.js"
   },
   {
     "revision": "841ef49141336a963b23631038976262",
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/desafioPinterest/static/media/Message_gray-512.741f87fe.png"
   },
   {
-    "revision": "ff5ea2f87c207ff32e384db3ccb546b0",
+    "revision": "4a7b9695c46108be908b8826605c0433",
     "url": "/desafioPinterest/index.html"
   }
 ];
