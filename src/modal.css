@@ -7,16 +7,17 @@
     z-index: 100;
     background-color: #efefef;
     display: flex;
+    
 }
 .divAdentro{
     margin: auto auto;
-    text-align: center;
-    width: 70%;
+    width: 60%;
     height: 80%;
     margin-top: 30px;
     background: white;
     color: black;
     display:flex;
+    border-radius: 2%
 }
 
 .divImagen, .divTexto{
@@ -24,8 +25,138 @@
     box-sizing: border-box;
     display: block;
     overflow: visible; 
+    
+}
+.divImagen{
+    text-align: center
 }
 
 .imgModal{
-    margin-top: 20%;
+    width: 70%;
+    margin-top: 15%;
+    border-radius: 2%;
+    
+}
+
+.divNavbar{
+    position: absolute;
+    width: 60%;
+    height: 70px;
+    margin-top: 2%;
+}
+
+.iconosModal{
+    width: 20px;
+    height: 20px;
+    margin-right: 50%;  
+    margin-left: 3%;  
+}
+.textoModal{
+    text-align: right;
+    padding: 1.5%;
+    background: #efefef;
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+    font-weight: bold;
+    color: #333333;
+}
+
+.iconoBox{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 43%;
+    background: #efefef;
+    padding: 1.1%;
+    top: -10%;
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
+}
+
+.textModal{
+    margin-left: 2%;
+    text-align: right;
+    padding: 1.5%;
+    background: #efefef;
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
+    font-weight: bold;
+    color:#333333;
+}
+.saveModal{
+    margin-left: 5%;
+    background: #E60023;
+    color: #ffffff;
+    padding: 1.5%;
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+    font-weight: bold;
+}
+
+.iconoArrow{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #efefef;
+    padding: 1.1%;
+    top: -10%;
+}
+
+.divTexto{
+    padding-right: 3%;    
+    color:#333333;
+    margin-top: 10%;
+}
+
+.page{
+    background: #efefef;
+    padding: 2%;
+    border-radius: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.line{
+    border: 1px solid #efefef
+}
+
+.titulo{
+    text-align: left;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.select{
+    font-weight: bold;
+    background: #efefef;
+    padding: 3%;
+    border-radius: 20px;
+}
+.noSelect{
+    font-weight: bold;
+    color: rgb(163, 160, 160);
+}
+.parrafo{
+    width: 60%;
+    margin-top:7%
+}
+.plus{
+    position: absolute;
+    bottom: 45%;
+    background-color: #efefef;
+    padding: 1%;
+    right: 24%;
+    border-radius: 7%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.userModal{
+    width: 50px;
+    height: 50px;
+}
+.parrafoUser{
+    position: absolute;
+    bottom: 32%;
+    right: 23%;
 }
