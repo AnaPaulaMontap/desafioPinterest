@@ -160,3 +160,12 @@
     bottom: 32%;
     right: 23%;
 }
+
+.backArrow{    
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 1%;
+    top: 5%;
+    
+}

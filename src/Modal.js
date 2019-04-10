@@ -3,6 +3,7 @@ import puntos from './img/puntos.png'
 import box from './img/outBox.png'
 import arrow from './img/arrow.png'
 import elefanta from './img/elefantita.jpg'
+import backArrow from './img/backarrow.png'
 import './modal.css'
 
 
@@ -13,8 +14,10 @@ function Modal (props) {
            props.close()
        }
    }}>
+    <img src={backArrow}   alt="icono" className="backArrow" onClick={props.close}/>
         <div className="divAdentro">
         <div className="divNavbar">
+       
         <img src={puntos}   alt="icono" className="iconosModal"/>
        
         <img src={box} alt="icono" className="iconoBox"/>    
@@ -29,7 +32,7 @@ function Modal (props) {
         <img src={props.item} alt="img" className="imgModal"/>
         </div>
         <div className="divTexto">
-        <p  className="page"> Intagram.com</p>
+        <p className="page"> Instagram.com</p>
         <hr className="line" />
         <p className="titulo">Fotos y comentarios</p>
         <span className="select">Fotos</span> <span className="noSelect"> Comentarios</span>

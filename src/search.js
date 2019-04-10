@@ -98,8 +98,11 @@ class Search extends Component {
     }
 
     componentWillUpdate(prevProps, prevState) {
+        
         if (prevState.charge !== prevProps.recharge) {
-
+            this.setState({
+                charge: true
+            })
             unsplash.photos.listPhotos(1, 20, "popular")
                 .then(response => {
                     return response.json()
@@ -152,8 +155,6 @@ class Search extends Component {
                         img8_12: this.state.img8_12.concat(imgC),
                         img12_16: this.state.img12_16.concat(imgD),
                         img16_20: this.state.img16_20.concat(imgE),
-                    },()=>{
-                        console.log(this.state.img0_4)
                     })                    
 
                 })               
@@ -161,9 +162,7 @@ class Search extends Component {
                     console.log(error);
                 })
 
-                this.setState({
-                    charge: true
-                })
+               
         }
         else{
             return null

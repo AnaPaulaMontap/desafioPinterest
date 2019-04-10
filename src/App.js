@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   handleAnimation = () => {
-    if (document.documentElement.scrollTop > 750){
+    if (document.documentElement.scrollTop > 600){
       console.log('entro')
       this.setState({
         ...this.state,
