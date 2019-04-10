@@ -32,16 +32,18 @@ class App extends Component {
 
   componentDidMount() {
     window.onscroll = () => this.handleAnimation();
+    console.log(this.state.screen)   
     
   }
 
   handleAnimation = () => {
-    if (document.documentElement.scrollTop > this.state.screen ){
+    if (document.documentElement.scrollTop > 750){
+      console.log('entro')
       this.setState({
         ...this.state,
         topScroll: true
       });
-    } 
+    }
   }
 
   render() {

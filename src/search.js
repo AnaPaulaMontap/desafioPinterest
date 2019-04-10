@@ -11,8 +11,10 @@ class Search extends Component {
     constructor(props){
         super(props);
         this.state = {
+            charge: false,
             search: '',
             images:[],
+            imagenes:[],
             img0_4: [],
             img4_8: [],
             img8_12: [],
@@ -21,11 +23,10 @@ class Search extends Component {
            
         };
 
-        
+       // this.handleRecharge = this.handleRecharge.bind(this)
     }
 
     componentDidMount () {
-
         unsplash.photos.listPhotos(1, 20, "latest")
         .then(response =>{
             return response.json()
@@ -95,107 +96,104 @@ class Search extends Component {
            })
         })                  
     }
-    componentDidUpdate (){
-        if( !this.props.recharge ){
-            return false
+
+    componentWillUpdate(prevProps, prevState) {
+        if (prevState.charge !== prevProps.recharge) {
+
+            unsplash.photos.listPhotos(1, 20, "popular")
+                .then(response => {
+                    return response.json()
+                })
+                .then(json => {
+                    const results = json
+
+                    this.setState({
+                        ...this.state,
+                        imagenes: results,
+                    })
+
+                })
+                .then(json => {
+                    let imgA = []
+                    let imgB = []
+                    let imgC = []
+                    let imgD = []
+                    let imgE = []
+
+                    for (let i = 0; i < 4; i++) {
+                        let imgRandom = this.state.imagenes[i]
+                        imgA.push(imgRandom.urls.thumb)
+                    }
+
+                    for (let i = 4; i < 8; i++) {
+                        let imgRandom1 = this.state.imagenes[i]
+                        imgB.push(imgRandom1.urls.thumb)
+                    }
+
+                    for (let i = 8; i < 12; i++) {
+                        let imgRandom2 = this.state.imagenes[i]
+                        imgC.push(imgRandom2.urls.thumb)
+                    }
+
+                    for (let i = 12; i < 16; i++) {
+                        let imgRandom3 = this.state.imagenes[i]
+                        imgD.push(imgRandom3.urls.thumb)
+                    }
+
+                    for (let i = 16; i < 20; i++) {
+                        let imgRandom4 = this.state.imagenes[i]
+                        imgE.push(imgRandom4.urls.thumb)
+                    }
+
+                    this.setState({
+                        ...this.state,
+                        img0_4: this.state.img0_4.concat(imgA),
+                        img4_8: this.state.img4_8.concat(imgB),
+                        img8_12: this.state.img8_12.concat(imgC),
+                        img12_16: this.state.img12_16.concat(imgD),
+                        img16_20: this.state.img16_20.concat(imgE),
+                    },()=>{
+                        console.log(this.state.img0_4)
+                    })                    
+
+                })               
+                .catch(function (error) {
+                    console.log(error);
+                })
+
+                this.setState({
+                    charge: true
+                })
         }
         else{
-        
-        unsplash.photos.listPhotos(2, 20, "latest")
-        .then(response =>{
-            return response.json()
-        })
-        .then(json => {
-           const results = json
-           
-           this.setState({
-            ...this.state,
-               images:results
-           })
-        })
-        .then(json =>{
-            let img1 = []
-            let img2 = []
-            let img3 = []
-            let img4 = []
-            let img5 = []
-
-        for (let i=0; i<4; i++){
-            let imgRandom = this.state.images[i]
-            img1.push(imgRandom.urls.thumb)
-        }
-        this.setState({
-            ...this.state,
-                img0_4: this.state.img0_4.concat(img1)
-           })
-
-        for (let i=4; i<8; i++){
-            let imgRandom1 = this.state.images[i]
-            img2.push(imgRandom1.urls.thumb)           
-        }
-
-        this.setState({
-            ...this.state,
-                img4_8: this.state.img4_8.concat(img2)
-           })
-        
-        for (let i=8; i<12; i++){
-            let imgRandom2 = this.state.images[i]
-            img3.push(imgRandom2.urls.thumb)           
-        }
-
-        this.setState({
-            ...this.state,
-                img8_12: this.state.img8_12.concat(img3)
-           })
-        
-        for (let i=12; i<16; i++){
-            let imgRandom3 = this.state.images[i]
-            img4.push(imgRandom3.urls.thumb)           
-        }
-
-        this.setState({
-            ...this.state,
-                img12_16: this.state.img12_16.concat(img4)
-           })
-           
-           for (let i=16; i<20; i++){
-            let imgRandom4 = this.state.images[i]
-            img5.push(imgRandom4.urls.thumb)           
-        }
-
-        this.setState({
-            ...this.state,
-                img16_20: this.state.img16_20.concat(img5)
-           })
-        })                  
+            return null
         }
     }
+
 
     render() {          
 
         const img =  this.state.img0_4.map(item =>{               
-             return <img className="imgSearch" src={item} alt="img" key={item} onClick={()=>this.props.open(item)}/>
+             return <img className="imgSearch" src={item} alt="img"  onClick={()=>this.props.open(item)}/>
                })
         
         const img1 =  this.state.img4_8.map(item1 =>{
               
-             return <img className="imgSearch" src={item1} alt="img" key={item1} onClick={()=>this.props.open(item1)}/>
+             return <img className="imgSearch" src={item1} alt="img" onClick={()=>this.props.open(item1)}/>
                   })
 
         const img2 =  this.state.img8_12.map(item2 =>{
             
-           return <img className="imgSearch" src={item2} alt="img" key={item2} onClick={()=>this.props.open(item2)}/>
+           return <img className="imgSearch" src={item2} alt="img" onClick={()=>this.props.open(item2)}/>
              })
       
         const img3 =  this.state.img12_16.map(item3 =>{
               
-           return <img className="imgSearch" src={item3} alt="img" key={item3} onClick={()=>this.props.open(item3)}/>
+           return <img className="imgSearch" src={item3} alt="img" onClick={()=>this.props.open(item3)}/>
                 })
 
         const img4 =  this.state.img16_20.map(item4 =>{
-              
-            return <img className="imgSearch" src={item4} alt="img" key={item4} onClick={()=>this.props.open(item4)}/>
+            return <img className="imgSearch" src={item4} alt="img" onClick={()=>this.props.open(item4)}/>
                 })
   
 
