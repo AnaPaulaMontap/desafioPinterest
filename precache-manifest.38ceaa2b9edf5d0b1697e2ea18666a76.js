@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/desafioPinterest/static/media/Message_gray-512.741f87fe.png"
   },
   {
-    "revision": "4a7b9695c46108be908b8826605c0433",
+    "revision": "7bbe289e3d980bd43ef1e15d79eec039",
     "url": "/desafioPinterest/index.html"
   }
 ];

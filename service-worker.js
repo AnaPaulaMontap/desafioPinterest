@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/desafioPinterest/precache-manifest.bcbd5d5250804f4fcb902d1cce6e708f.js"
+  "/desafioPinterest/precache-manifest.38ceaa2b9edf5d0b1697e2ea18666a76.js"
 );
 
 workbox.clientsClaim();
